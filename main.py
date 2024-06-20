@@ -10,8 +10,6 @@ def upload_callback(current, total):
 
 async def main():
     async with TelegramClient(settings.SESSION, settings.API_ID, settings.API_HASH) as client:
-        await client.start()
-        print((await client.get_me()).username)
         file = await client.upload_file(
             settings.ATTACH_FILE_PATH, progress_callback=upload_callback
         ) if settings.ATTACH_FILE_PATH else None
