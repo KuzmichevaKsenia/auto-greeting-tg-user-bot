@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     ATTACH_FILE_PATH: str | None = None
     MESSAGE: str = 'Hi!'
     PATTERN: str = '(?i)hi'
+
+    model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
 
 
 settings = Settings()
