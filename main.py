@@ -2,6 +2,9 @@ import asyncio
 
 from telethon import TelegramClient, events
 from settings import settings
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 def upload_callback(current, total):
